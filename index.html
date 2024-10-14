@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerakan Sekolah Sehat (GSS)</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link rel="icon" href="assets/background.png">
+    <style>
+        /* deklarasi font */
+        @import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+        @font-face {
+            font-family: 'panggil';
+            src: url(./swansea-font/info.txt);
+        }
+
+        @font-face {
+            font-family: 'panggil3';
+            src: url(./swansea-font/SwanseaBoldItalic-p3Dv.ttf);
+        }
+        /*end deklarasi font*/
+
+        /* hias gss */
+        .hero-section {
+            position: relative;
+            height: 100vh;
+            width: 100vw;
+            background-image: url(assets/background.png);
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: rgb(0, 0, 0);
+            font-weight: bold;
+            font-family: 'panggil3', sans-serif;
+        }
+
+        .container {
+            position: relative;
+            z-index: 2;
+            background: rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(3px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            width: 100%;
+            padding: 20px;
+            text-align: center;
+        }
+        /* end hias gss */
+
+        /** dropdown menu dan navbar **/
+        .dropdown-menu {
+            background-color: #F6F5F5;
+            border: none;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            padding: 0;
+            margin: 0;
+            transition: all 0.3s ease;
+        }
+
+        .dropdown-item {
+            font-family: 'panggil', sans-serif;
+            color: #333;
+            padding: 10px 20px;
+            transition: all 0.3s ease;
+        }
+
+        .dropdown-item:hover {
+            background-color: #686D76;
+            color: #ffffff;
+        }
+
+        .dropdown:hover .dropdown-menu {
+            display: block;
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .navbar {
+            transition: box-shadow 0.3s ease-in-out;
+            font-size: 18px;
+            z-index: 9999;
+            background-color: #FAF6F0 !important;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar-nav .dropdown-menu {
+            opacity: 0;
+            visibility: hidden;
+            transition: visibility 0.3s, opacity 0.3s ease;
+        }
+
+        .navbar-nav .dropdown:hover .dropdown-menu {
+            display: block;
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(5px);
+        }
+
+        .navbar-nav .nav-link {
+            position: relative;
+            color: #ffffff;
+            padding: 10px 15px;
+            font-family: 'panggil', sans-serif;
+            transition: all 0.3s ease;
+            overflow: hidden;
+        }
+
+        .navbar-nav .nav-link::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            width: 300%;
+            height: 300%;
+            background-color: #bcbcbcb9;
+            transform: translate(-50%, -50%) scale(0);
+            transition: transform 0.5s ease;
+            border-radius: 50%;
+            z-index: -1;
+        }
+
+        .navbar-nav .nav-link:hover::before {
+           transform: translate(-50%, -50%) scale(1);
+        }
+
+        .navbar-nav .nav-link:hover {
+            background-color: #686D76;
+            border-radius: 5px;
+        }
+
+        .navbar-scrolled {
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar img {
+            max-height: 60px;
+            margin-right: 15px;
+        }
+        /* end dropdown menu dan navbar */
+
+        /* atur foto */
+        img {
+            width: 180px;   
+        }
+        /* end atur foto */
+
+        /* footer */
+        footer {
+        transition: background-color 0.3s;
+        position: relative;
+        z-index: 2;
+        width: 100%;
+        padding: 20px;
+        text-align: center;
+        font-size: 14x;
+        }
+
+        footer:hover {
+        background-color: #3e3e42;
+        }
+    
+        footer a:hover {
+        color: #f0ad4e;
+        }
+
+        span {
+            font-family: 'Roboto', cursive;
+            color: #333;
+        }
+
+
+        span:hover {
+            color: #FFF7D4;
+        }
+
+        .btn feGaussianBlur 
+        /* end footer */
+
+    </style>
+</head>
+
+<body style="overflow-x: hidden;">
+    <!-- navbar -->
+    <nav class="navbar navbar-expand-lg shadow-md py-0" id="mainNavbar">
+        <div class="container">
+            <img src="assets/sekolahsehat.png" alt="logo">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html" style="font-family: panggil1, sans-serif; color: #ffffff;">Beranda</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="GSS.html">GSS</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="5SDropdown" role="button" aria-expanded="false" style="font-family: panggil1, sans-serif; color: #ffffff;">
+                            Gerakan 5S
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="5SDropdown">
+                            <li><a class="dropdown-item" href="sehat-makanan.html" style="font-family: panggil, sans-serif;">Sehat Makanan</a></li>
+                            <li><a class="dropdown-item" href="sehat-lingkungan1.html" style="font-family: panggil, sans-serif;">Sehat Lingkungan</a></li>
+                            <li><a class="dropdown-item" href="sehat-mental.html" style="font-family: panggil, sans-serif;">Sehat Mental</a></li>
+                            <li><a class="dropdown-item" href="sehat-imunisasi.html" style="font-family: panggil, sans-serif;">Sehat Imunisasi</a></li>
+                            <li><a class="dropdown-item" href="sehat-fisik.html" style="font-family: panggil, sans-serif;">Sehat Fisik</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="tentang">Galeri Sehat</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="edukasi.html" style="font-family: panggil1, sans-serif; color: #ffffff;">Edukasi</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- end navbar -->
+    
+    <!-- hero utama -->
+    <section class="hero-section d-flex justify-content-center align-items-center text-center py-0">
+        <div class="container" style="height: 100%; display: flex; justify-content: center; align-items: center; flex-direction: column;">
+            <h1 class="display-1" data-aos="fade-down" style="color: white;">Gerakan Sekolah Sehat (GSS)</h1>
+            <p class="lead" data-aos="fade-up" data-aos-delay="200" style="color: rgb(255, 255, 255);">
+                <strong>Mewujudkan Sekolah Sehat Dengan 5 Gerakan Utama: Sehat Makanan, Lingkungan, Mental, Imunisasi, dan Fisik.</strong>
+            </p>
+            <div class="mt-4" data-aos="fade-up" data-aos-delay="400">
+                <a href="sehat-makanan.html" class="btn btn-primary mx-2" style="background-color: #FF885B !important; font-family: panggil1, sans-serif; font-weight: bold; font-size: 16px;">Sehat Makanan</a>
+                <a href="sehat-lingkungan1.html" class="btn btn-success mx-2" style="background-color: #c98346 !important; font-family: panggil1, sans-serif; font-weight: bold; font-size: 16px;">Sehat Lingkungan</a>
+                <a href="sehat-mental.html" class="btn btn-info mx-2" style="background-color: #557C56 !important; font-family: panggil1, sans-serif; font-weight: bold; color: white; font-size: 16px;">Sehat Mental</a>
+                <a href="sehat-imunisasi.html" class="btn btn-warning mx-2" style="background-color: #A5B68D !important; font-family: panggil1, sans-serif; font-weight: bold; color: white; font-size: 16px;">Sehat Imunisasi</a>
+                <a href="sehat-fisik.html" class="btn btn-danger mx-2" style="background-color: #75b3cb !important; font-family: panggil1, sans-serif; font-weight: bold; font-size: 16px;">Sehat Fisik</a>
+            </div>
+        </div>
+    </section>
+    <!-- end konten utama -->
+        
+    <!-- footer -->
+    <footer class="bg-dark text-white py-5" style="background-color: #7b7b7bc3 !important; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.3);" data-aos="fade-up">
+            <div class="row text-center mb-4">
+                <div class="col-md-12">
+                    <img src="assets/sekolahsehat.png" alt="Logo" class="mx-auto mb-3" style="width: 250px;">
+                </div>
+                <div class="col-md-12">
+                    <p class="font-weight-bold text-lg tracking-wide mb-2" style="font-family: Fredoka; font-size: 1.2rem; color: #333;">
+                        Mewujudkan Sekolah Sehat, Aman, Dan Nyaman Bagi Anak-Anak Kita
+                    </p>
+                </div>
+            </div>
+    
+            <hr class="bg-light mb-4" style="height: 2px; border: none;">
+    
+            <div class="row mb-4">
+                <div class="col-md-12 text-left">
+                    <h5 class="font-weight-bold" style="color: #000000; font-family: 'Roboto';">Kontak:</h5>
+                    <p class="mb-1">Nama: <span>Jakkob Panjaitan</span></p>
+                    <p class="mb-1">No Telepon: <span>0895-3212-0531</span></p>
+                    <p class="mb-1">Email: <a href="mailto:panjaitanjakkob@gmail.com" class="text-white" style="text-decoration: underline; font-family: cursive;">panjaitanjakkob@gmail.com</a></p>
+                </div>
+            </div>
+    
+            <div class="row text-center mb-4">
+                <div class="col-md-12">
+                    <button class="btn btn-danger mx-2" onclick="galeri()" style="border-radius: 20px; padding: 10px 20px;">Galeri Sehat</button>
+                    <button class="btn btn-danger mx-2" onclick="gss()" style="border-radius: 20px; padding: 10px 20px;">GSS</button>
+                </div>
+            </div>
+    
+            <div class="row mt-3">
+                <div class="col-md-12 text-center">
+                    <p class="text-sm font-medium">&copy; 2024 SMKN64 Menuju Sekolah Sehat.</p>
+                </div>
+            </div>
+    </footer>
+             
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        //AOS
+        AOS.init({
+            duration: 1000,
+            once: true,
+        });
+
+        //Event Scroll
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('mainNavbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('navbar-scrolled');
+            } else {
+                navbar.classList.remove('navbar-scrolled');
+            }
+        });
+
+        //jalanin buka halaman baru
+        function galeri() {
+            console.log('Membuka halaman galeri.html');
+            window.location.href = 'galeri.html'
+        }
+        function gss() {
+            console.log('Membuka halaman GSS.html');
+            window.location.href = 'GSS.html'
+        }
+    </script>
+</body>

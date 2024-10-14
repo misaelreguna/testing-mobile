@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sehat Makanan - Gerakan Sekolah Sehat</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+    <link rel="icon" href="assets/background.png">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+        @font-face {
+            font-family: 'saya';
+            src: url(./swansea-font/misc/SWANSE__-392e.txt);
+        }
+
+        @font-face {
+            font-family: 'swansea';
+            src: url(./swansea-font/Swansea-q3pd.ttf);
+        }
+
+        @font-face {
+            font-family: 'ya';
+            src: url(./swansea-font/misc/SWANSE_B-fa23.txt);
+        }
+
+        @font-face {
+            font-family: 'lagi';
+            src: url(./swansea-font/misc/SWANSE_I-f20e.txt);
+        }
+
+        @font-face {
+            font-family: 'nasi';
+            src: url(./swansea-font/misc/SWANSEBI-9e01.txt);
+        }
+
+        @font-face {
+            font-family: 'panggil';
+            src: url(./swansea-font/info.txt);
+        }
+
+        @font-face {
+            font-family: 'panggil2';
+            src: url(./swansea-font/SwanseaBold-D0ox.ttf);
+        }
+
+        @font-face {
+            font-family: 'panggil3';
+            src: url(./swansea-font/SwanseaBoldItalic-p3Dv.ttf);
+        }
+
+        @font-face {
+            font-family: 'panggil4';
+            src: url(./swansea-font/SwanseaItalic-AwqD.ttf);
+        }
+
+        .category-section {
+            padding: 50px 0;
+        }
+
+        .category-image {
+            width: 100%;
+            border-radius: 10px;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .category-image:hover {
+            transform: scale(1.05);
+        }
+
+        .section-header {
+            font-size: 36px;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .section-content {
+            font-size: 18px;
+            text-align: justify;
+            margin-bottom: 20px;
+        }
+
+        .category-text {
+            padding: 20px;
+        }
+
+        .intro-section {
+            padding: 100px 0;
+            background-color: #FBF0B2;
+        }
+
+        .intro-section h1 {
+            font-size: 48px;
+            font-family: 'Fredoka', sans-serif;
+            text-align: center;
+            color: #E9B384;
+            font-weight: bold;
+        }
+
+        .container {
+            position: relative;
+            z-index: 2;
+            background: rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(3px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            width: 100%;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .dropdown-menu {
+            background-color: #F7EED3;
+            border: none;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            padding: 0;
+            margin: 0;
+            transition: all 0.3s ease;
+        }
+
+        .dropdown-item {
+            font-family: 'panggil1', sans-serif;
+            color: #333;
+            padding: 10px 20px;
+            transition: all 0.3s ease;
+        }
+
+        .dropdown-item:hover {
+            background-color: #B17457;
+            color: #ffffff;
+        }
+
+        .dropdown:hover .dropdown-menu {
+            display: block;
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .navbar {
+            transition: box-shadow 0.3s ease-in-out;
+            font-size: 18px;
+            z-index: 9999;
+            background-color: #FFF0D1!important;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar-toggler-icon {
+            background-image: url('data:image/svg+xml;charset=utf8,%3Csvg xmlns%3D%27http://www.w3.org/2000/svg%27 viewBox%3D%270 0 30 30%27%3E%3Cpath stroke%3D%27rgba%28255, 255, 255, 1%27 stroke-width%3D%272%27 stroke-linecap%3D%27round%27 stroke-miterlimit%3D%2710%27 d%3D%27M4 7h22M4 15h22M4 23h22%27/%3E%3C/svg%3E');
+        }
+
+        .navbar-nav .dropdown-menu {
+            opacity: 0;
+            visibility: hidden;
+            transition: visibility 0.3s, opacity 0.3s ease;
+        }
+
+        .navbar-nav .dropdown:hover .dropdown-menu {
+            display: block;
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(5px);
+        }
+
+        .navbar-nav .nav-link {
+            position: relative;
+            color: #ffffff;
+            padding: 10px 15px;
+            font-family: 'panggil1', sans-serif;
+            transition: all 0.3s ease;
+            overflow: hidden;
+        }
+
+        .navbar-nav .nav-link::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            width: 300%;
+            height: 300%;
+            background-color: rgba(255, 255, 255, 0.3);
+            transform: translate(-50%, -50%) scale(0);
+            transition: transform 0.5s ease;
+            border-radius: 50%;
+            z-index: -1;
+        }
+
+        .navbar-nav .nav-link:hover::before {
+           transform: translate(-50%, -50%) scale(1);
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: #ffffff;
+        }
+
+        .navbar-nav .nav-link:hover {
+            background-color: #A28B55;
+            color: #ffffff;
+            border-radius: 5px;
+        }
+
+        .navbar-scrolled {
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar img {
+            max-height: 60px;
+            margin-right: 15px;
+        }
+
+        .intro-section p {
+            font-size: 20px;
+            text-align: center;
+            max-width: 800px;
+            margin: 20px auto;
+            color: #9E6F21;
+            font-family: "nasi", sans-serif;
+            font-weight: bold;
+        }
+
+        img {
+            width: 180px;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg shadow-md py-0" id="mainNavbar" data-aos="fade-down">
+        <div class="container">
+            <img src="assets/sekolahsehat.png" alt="logo">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html" style="font-family: panggil1, sans-serif; color: #ffffff;">Beranda</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="5SDropdown" role="button" aria-expanded="false" style="font-family: panggil1, sans-serif; color: #ffffff;">
+                            Gerakan 5S
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="5SDropdown">
+                            <li><a class="dropdown-item" href="sehat-makanan.html" style="font-family: panggil1, sans-serif;">Sehat Makanan</a></li>
+                            <li><a class="dropdown-item" href="sehat-lingkungan1.html" style="font-family: panggil1, sans-serif;">Sehat Lingkungan</a></li>
+                            <li><a class="dropdown-item" href="sehat-mental.html" style="font-family: panggil1, sans-serif;">Sehat Mental</a></li>
+                            <li><a class="dropdown-item" href="sehat-imunisasi.html" style="font-family: panggil1, sans-serif;">Sehat Imunisasi</a></li>
+                            <li><a class="dropdown-item" href="sehat-fisik.html" style="font-family: panggil1, sans-serif;">Sehat Fisik</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="edukasi.html" style="font-family: panggil1, sans-serif; color: #ffffff;">Edukasi</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section class="intro-section" data-aos="fade-down">
+            <h1>Apa itu Sehat Makanan?</h1>
+            <p>Sehat Makanan adalah bagian penting dari Gerakan Sekolah Sehat yang
+                bertujuan untuk meningkatkan kesadaran siswa tentang pentingnya pola
+                makan sehat dan seimbang. Dengan mengonsumsi makanan pokok,
+                lauk pauk, sayuran, <br> buah-buahan, dan susu.
+                Siswa dapat mendukung pertumbuhan fisik dan perkembangan mental yang optimal.</p>
+    </section>
+
+    <section class="category-section bg-primary text-white" data-aos="fade-up" style="background-color: #FAF7F0 !important;">
+            <h2 class="section-header" style="font-family: Fredoka ,sans-serif; color: #dd9115;">Makanan Pokok</h2>
+            <div class="row align-items-center">
+                <div class="col-md-6" data-aos="fade-right">
+                    <img src="assets/Desain tanpa judul.png" alt="Makanan Pokok" class="category-image">
+                </div>
+                <div class="col-md-6 category-text" data-aos="fade-left">
+                    <p class="section-content" style="font-family: Fredoka; color: #dd9115;">Makanan pokok adalah makanan yang menjadi sumber karbohidrat, mengenyangkan, dan didapatkan dari hasil alam daerah setempat.<br>Makanan pokok terdiri dari:<br><br>
+                        <li style="font-family: lagi, cursive; color: #dd9115;">Nasi:<br>Adalah beras yang telah dimasak dengan cara direbus. Nasi juga mengandung protein, karbohidrat, dan vitamin.</li>
+                        <li style="font-family: lagi, cursive; color: #dd9115;">Jagung:<br>Adalah makanan pokok yang mengandung serat, protein, karbohidrat, dan vitamin A dan B. Jagung biasanya dimasak dengan cara direbus.</li>
+                        <li style="font-family: lagi, cursive; color: #dd9115;">Singkong:<br>Adalah makanan pokok yang mengandung mineral, air, serat, dan vitamin C. Singkong biasanya dimasak dengan cara direbus, digoreng, atau dikukus.</li>
+                    </p>
+                </div>
+            </div>
+    </section>
+
+    <section class="category-section" style="background-color: #FEF9D9;" data-aos="fade-up">
+            <h2 class="section-header" style="font-family: Fredoka, sans-serif; color: #724d0e;">
+                Lauk Pauk
+            </h2>                         
+            <div class="row align-items-center">
+                <div class="col-md-6 order-md-2" data-aos="fade-left">
+                    <img src="assets/laukpauk.png" alt="Lauk Pauk" class="category-image">
+                </div>
+                <div class="col-md-6 order-md-1 category-text" data-aos="fade-right">
+                    <p class="section-content" style="font-family: Fredoka; color: #724d0e;">
+                        Lauk pauk adalah makanan hidangan pendamping
+                        yang disajikan bersama makanan pokok. 
+                        Lauk pauk biasanya terdiri dari<br>bahan-bahan yang kaya akan protein.
+                        Makanan lauk pauk terdiri dari:<br><br> 
+                            <li style="font-family: lagi, cursive; color: #724d0e;">Daging:<br>Adalah makanan yang kaya akan protein, lemak, vitamin B dan D, dan mineral. Daging memiliki manfaat salah satunya sebagai sumber energi.</li>
+                            <li style="font-family: lagi, cursive; color: #724d0e;">Ikan:<br>Adalah makanan yang mengandung zat besi, vitamin, mineral, dan protein. Manfaat dari memakan ikan dapat membuat otak dan jantung semakin sehat.</li>
+                            <li style="font-family: lagi, cursive; color: #724d0e;">Telur:<br>Adalah makanan yang mengandung protein, lemak, dan vitamin A. Telur memiliki manfaat yang banyak, salah satunya Mendukung Pertumbuhan dan Perkembangan.</li>
+                    </p>
+                </div>
+            </div>
+    </section>
+   
+    <section class="category-section bg-tertiary text-white" data-aos="fade-up" style="background-color: #FAF7F0 !important;">
+            <h2 class="section-header" style="font-family: Fredoka, sans-serif; color: #8FD14F;">Sayuran</h2>
+            <div class="row align-items-center">
+                <div class="col-md-6" data-aos="fade-right">
+                    <img src="assets/sayuran.png" alt="Sayuran" class="category-image">
+                </div>
+                <div class="col-md-6 category-text" data-aos="fade-left">
+                    <p class="section-content" style="font-family: Fredoka; color: #8FD14F;">Sayuran adalah jenis makanan yang berasal dari
+                        berbagai tumbuhan. Sayuran biasanya dimakan berdampingan dengan makanan pokok dan lauk pauk.
+                        Contoh tanaman sayuran seperti:<br><br>
+                        <li style="font-family: lagi, cursive; color: #8FD14F;">Buncis:<br>Memiliki kandungan vitamin K dan protein. Buncis juga memiliki manfaat yang banyak salah satunya menjaga kesehatan pencernaan.</li>
+                        <li style="font-family: lagi, cursive; color: #8FD14F;">Brokoli:<br>Adalah sayuran yang mengandung serat, vitamin, dan folat. Manfaat dari sayur brokoli adalah menjaga kesehatan tulang dan otak.</li>
+                        <li style="font-family: lagi, cursive; color: #8FD14F;">Selada:<br>Sayuran yang mengandung, serat, folat dan vitamin A, C, K. Selada mempunyai manfaat yang banyak, salah satunya meningkatkan kesehatan tubuh.</li> 
+                    </p>
+                </div>
+            </div>
+    </section>
+
+    <section class="category-section bg-quaternary text-white" data-aos="fade-up" style="background-color: #FFF5E4 !important;">
+            <h2 class="section-header" style="font-family: Fredoka, sans-serif; color: #F08A5D;">Buah-buahan</h2>
+            <div class="row align-items-center">
+                <div class="col-md-6 order-md-2" data-aos="fade-left">
+                    <img src="assets/buah-buahan.png" alt="Buah-buahan" class="category-image">
+                </div>  
+                <div class="col-md-6 order-md-1 category-text" data-aos="fade-right">
+                    <p class="section-content" style="font-family: Fredoka; color: #F08A5D;">Buah-buahan adalah hasil dari tanaman yang
+                        biasanya Memiliki biji dan berkembang dari bunga.
+                        Buah-buahan memiliki peran sangat penting dalam pola
+                        makan sehat dan menjaga kesehatan tubuh.<br>
+                        Contoh buah-buahan seperti:<br><br>
+                            <li style="font-family: lagi, cursive; color: #F08A5D;">Pisang:<br>Merupakan buah yang memiliki rasa manis, lembut dan kaya nutrisi. Pisang juga memiliki kandungan serat, vitamin dan kalsium. Buah ini juga kaya akan manfaat, salah satunya melancarkan pencernaan.</li>
+                            <li style="font-family: lagi, cursive; color: #F08A5D;">Mangga:<br>Adalah buah tropis yang dikenal dengan rasa yang segar dan lembut. Mangga memiliki manfaat yang banyak, seperti menjaga kesehatan mata dan kulit. Buah mangga sendiri juga mengandung antioksidan dan vitamin C dan A.</li>
+                            <li style="font-family: lagi, cursive; color: #F08A5D;">Jeruk:<br>Merupakan buah yang paling populer di dunia, jeruk memiliki kandungan vitamin C dan serat. Manfaat jeruk yaitu menjaga kesehatan kulit, membantu pencernaan serta meningkatkan daya tahan tubuh.</li>
+                    </p>
+                </div>
+            </div>
+    </section>
+
+    <section class="category-section bg-quinary text-white" data-aos="fade-up" style="background-color: #FFF0D1 !important;">
+            <h2 class="section-header" style="font-family: Fredoka, sans-serif; color: #B19470;">Susu</h2>
+            <div class="row align-items-center">
+                <div class="col-md-6" data-aos="fade-right">
+                    <img src="assets/susu.png" alt="Susu" class="category-image">
+                </div>
+                <div class="col-md-6 category-text" data-aos="fade-left">
+                    <p class="section-content"  style="font-family: Fredoka; color: #B19470;">Susu adalah salah satu minuman yang kaya akan nutrisi dan sangat penting untuk kesehatan. Susu juga memiliki kandungan protein, kalsium, fosfor, dan vitamin.<br>
+                            Jenis-jenis susu yang dapat di konsumsi antara lain:<br><br>
+                            <li style="font-family: lagi, cursive; color: #B19470;">Susu sapi:<br>Susu sapi adalah jenis susu yang paling umum dan sering dikonsumsi. Susu ini kaya akan protein, kalsium, dan vitamin D.</li>
+                            <li style="font-family: lagi, cursive; color: #B19470;">Susu kedelai:<br>Memiliki manfaat sebagai pelancar alat pencernaan, menjaga kesehatan kulit dan meningkatkan imunitas tubuh.</li>
+                            <li style="font-family: lagi, cursive; color: #B19470;">Susu kambing:<br>Sebagai alternatif bagi mereka yang alergi terhadap susu sapi. Manfaat susu kambing adalah menjaga kesehatan jantung dan kulit.</li>
+                        </p>
+                </div>
+            </div>
+    </section>
+
+    <footer class="bg-success text-white py-8" style="background-color: #FAF7F0 !important; border-radius: 8px;" data-aos="fade-down">
+            <div class="row text-center">
+                <div class="col-md-12 mb-4">
+                    <img src="assets/sekolahsehat.png" alt="Logo" class="mx-auto mb-4" style="width: 150px;">
+                </div>
+                <div class="col-md-12">
+                    <p class="font-semibold text-lg md:text-xl lg:text-2xl tracking-wide mb-4" style="font-family: 'nasi', sans-serif; color: #333;">
+                        Mewujudkan Sekolah Sehat, Aman, Dan Nyaman Bagi Anak-Anak Kita
+                    </p>
+                </div>
+                <div class="col-md-12 mb-4">
+                    <p class="text-sm md:text-base lg:text-lg mb-1" style="font-family: 'nasi', sans-serif; color: #333;">
+                        📞 Telp: <span class="font-bold text-dark">0895-3212-05351 (Jakkob)</span>
+                    </p>
+                    <p class="text-sm md:text-base lg:text-lg" style="color: #333;">
+                        📧 Email: <a href="#" class="text-dark hover:text-gray-300 font-medium">gerakansekolahsehat.com</a>
+                    </p>
+                </div>
+            </div>
+            <div class="row mt-6">
+                <div class="col-md-12 text-center">
+                    <p class="text-sm md:text-base lg:text-lg text-gray-200 font-medium" style="color: #333;">
+                        &copy; 2024 Menuju Sekolah Sehat.
+                    </p>
+                </div>
+            </div>
+    </footer>        
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script>
+        AOS.init({
+    duration: 1000,
+    delay: 300,
+    });
+    </script>
+</body>
+
+</html>

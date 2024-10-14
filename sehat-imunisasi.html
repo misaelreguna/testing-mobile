@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sehat Imunisasi - Gerakan Sekolah Sehat</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    <link rel="icon" type="image/xicon" href="assets/ks-removebg-preview.png">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+        @font-face {
+            font-family: 'panggil1';
+            src: url(./swansea-font/info.txt);
+        }
+
+        .category-section {
+            padding: 50px 0;
+        }
+
+        .category-image {
+            width: 100%;
+            border-radius: 10px;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .category-image:hover {
+            transform: scale(1.05);
+        }
+
+        .section-header {
+            font-size: 36px;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .section-content {
+            font-size: 18px;
+            text-align: justify;
+            margin-bottom: 20px;
+        }
+
+        .container {
+            position: relative;
+            z-index: 2;
+            background: rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            width: 100%;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .dropdown-menu {
+            background-color: #B8001F;
+            border: none;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            padding: 0;
+            margin: 0;
+            transition: all 0.3s ease;
+        }
+
+        .dropdown-item {
+            font-family: 'panggil1', sans-serif;
+            color: #ffffff;
+            padding: 10px 20px;
+            transition: all 0.3s ease;
+        }
+
+        .dropdown-item:hover {
+            background-color: #FF4C4C;
+            color: #ffffff;
+        }
+
+        .dropdown:hover .dropdown-menu {
+            display: block;
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .navbar {
+            transition: box-shadow 0.3s ease-in-out;
+            font-size: 18px;
+            z-index: 9999;
+            background-color: #FF0000!important;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar-toggler-icon {
+            background-image: url('data:image/svg+xml;charset=utf8,%3Csvg xmlns%3D%27http://www.w3.org/2000/svg%27 viewBox%3D%270 0 30 30%27%3E%3Cpath stroke%3D%27rgba%28255, 255, 255, 1%27 stroke-width%3D%272%27 stroke-linecap%3D%27round%27 stroke-miterlimit%3D%2710%27 d%3D%27M4 7h22M4 15h22M4 23h22%27/%3E%3C/svg%3E');
+        }
+
+        .navbar-nav .dropdown-menu {
+            opacity: 0;
+            visibility: hidden;
+            transition: visibility 0.3s, opacity 0.3s ease;
+        }
+
+        .navbar-nav .dropdown:hover .dropdown-menu {
+            display: block;
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(5px);
+        }
+
+        .navbar-nav .nav-link {
+            position: relative;
+            color: #ffffff;
+            padding: 10px 15px;
+            font-family: 'panggil1', sans-serif;
+            transition: all 0.3s ease;
+            overflow: hidden;
+        }
+
+        .navbar-nav .nav-link::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            width: 300%;
+            height: 300%;
+            background-color: #FF6969;
+            transform: translate(-50%, -50%) scale(0);
+            transition: transform 0.5s ease;
+            border-radius: 50%;
+            z-index: -1;
+        }
+
+        .navbar-nav .nav-link:hover::before {
+           transform: translate(-50%, -50%) scale(1);
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: #ffffff;
+        }
+
+        .navbar-nav .nav-link:hover {
+            background-color: #FF6969;
+            color: #ffffff;
+            border-radius: 5px;
+        }
+
+        .navbar-scrolled {
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar img {
+            max-height: 60px;
+            margin-right: 15px;
+        }
+
+        img {
+            width: 180px;
+        }
+        
+        .category-text {
+            padding: 20px;
+        }
+
+        .intro-section {
+            background-color: #C63D2F;
+            padding: 100px 0;
+        }
+
+        .intro-section h1 {
+            font-size: 48px;
+            font-weight: bold;
+            font-family: "Fredoka", sans-serif;
+            text-align: center;
+            color: #F9F6EE;
+        }
+
+        .intro-section p {
+            font-size: 20px;
+            text-align: center;
+            max-width: 800px;
+            margin: 20px auto;
+            color: #ffffff;
+            font-weight: bold;
+            font-family: "Open Sans", sans-serif;
+        }
+
+        .part-section {
+            font-weight: bold;
+            font-size: 24px;
+            text-align: center;
+            margin-bottom: 20px;
+            color: #047857;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg shadow-md py-0" id="mainNavbar" data-aos="fade-down">
+        <div class="container">
+            <img src="assets/sekolahsehat.png" alt="logo">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html" style="font-family: panggil1, sans-serif; color: #ffffff;">Beranda</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="5SDropdown" role="button" aria-expanded="false" style="font-family: panggil1, sans-serif; color: #ffffff;">
+                            Gerakan 5S
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="5SDropdown">
+                            <li><a class="dropdown-item" href="sehat-makanan.html" style="font-family: panggil1, sans-serif;">Sehat Makanan</a></li>
+                            <li><a class="dropdown-item" href="sehat-lingkungan1.html" style="font-family: panggil1, sans-serif;">Sehat Lingkungan</a></li>
+                            <li><a class="dropdown-item" href="sehat-mental.html" style="font-family: panggil1, sans-serif;">Sehat Mental</a></li>
+                            <li><a class="dropdown-item" href="sehat-imunisasi.html" style="font-family: panggil1, sans-serif;">Sehat Imunisasi</a></li>
+                            <li><a class="dropdown-item" href="sehat-fisik.html" style="font-family: panggil1, sans-serif;">Sehat Fisik</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="edukasi.html" style="font-family: panggil1, sans-serif; color: #ffffff;">Edukasi</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section class="intro-section" data-aos="fade-down"> 
+            <h1>Apa itu Sehat Imunisasi?</h1>
+            <p>Sehat Imunisasi merujuk pada upaya sekolah untuk memastikan seluruh
+                siswa menerima vaksinasi yang dibutuhkan agar terlindungi dari berbagai
+                penyakit menular. Program imunisasi di sekolah menjadi bagian penting
+                untuk menciptakan lingkungan yang sehat, di mana siswa tidak hanya
+                belajar tentang pentingnya kesehatan, tetapi juga mendapatkan
+                perlindungan langsung melalui vaksinasi.</p>
+    </section>
+
+    <section class="category-section text-white" data-aos="fade-up" style="background-color: #FCFAEE;">
+            <h2 class="section-header" style="font-family: Fredoka, sans-serif; color: #B8001F;">Pentingnya Imunisasi</h2>
+            <div class="row align-items-center">
+                <div class="col-md-6" data-aos="fade-right">
+                    <img src="assets/imunisasi.png" alt="Pentingnya Imunisasi" class="category-image">
+                </div>
+                <div class="col-md-6 category-text" data-aos="fade-left">
+                    <p class="section-content" style="font-family: Fredoka; color: #B8001F;">Dalam Gerakan Sekolah Sehat (GSS), imunisasi
+                        memegang peranan penting untuk menjaga
+                        kesehatan siswa. Imunisasi bertujuan untuk
+                        menciptakan lingkungan sekolah yang sehat, di mana
+                        siswa dapat belajar dan berkembang tanpa risiko
+                        tinggi terkena penyakit berbahaya.<br>Pentingnya imunisasi meliputi beberapa aspek utama seperti:<br>
+                            <li style="font-family: panggil1, cursive; color: #B8001F;">Melindungi diri dari penyakit berbahaya.</li>
+                            <li style="font-family: panggil1, cursive; color: #B8001F;">Mencegah penyebaran penyakit.</li>
+                            <li style="font-family: panggil1, cursive; color: #B8001F;">Membantu meningkatkan kekebalan tubuh.</li>
+                            <li style="font-family: panggil1, cursive; color: #B8001F;">Dapat mengurangi angka kematian.</li>
+                            <li style="font-family: panggil1, cursive; color: #B8001F;">Menghemat biaya kesehatan.</li>
+                            <li style="font-family: panggil1, cursive; color: #B8001F;">Membuat kualitas hidup yang lebih baik.</li>
+                    </p>
+                </div>
+            </div>
+    </section>
+    
+    <section class="category-section bg-secondary text-white" data-aos="fade-up" style="background-color: #C63D2F !important;">
+            <h2 class="section-header" style="font-family: Fredoka, sans-serif; color: #FFFBE6;">Jenis-Jenis Vaksin</h2>
+            <div class="row align-items-center">
+                <div class="col-md-6 order-md-2" data-aos="fade-left">
+                    <img src="assets/jenis-jenisvaksin.png" alt="Jenis-Jenis Vaksin" class="category-image">
+                </div>
+                <div class="col-md-6 order-md-1 category-text" data-aos="fade-right">
+                    <p class="section-content" style="font-family: Fredoka; color: #FFFBE6;">Beberapa jenis vaksin yang sering digunakan yaitu:<br>
+                        <strong>
+                            <li style="font-family: panggil1, cursive; color: #FFFBE6;">Vaksin inactivated (Vaksin Mati):<br>Vaksin ini menggunakan virus atau bakteri yang sudah mati dan tidak dapat menyebabkan penyakit. Contohnya adalah vaksin polio dan vaksin influenza.</li>
+                            <li style="font-family: panggil1, cursive; color: #FFFBE6;">Vaksin mRNA:<br>Vaksin ini menggunakan informasi genetik (mRNA) untuk memberikan instruksi kepada sel tubuh agar memproduksi protein virus dan memicu respons imun. Contoh vaksin mRNA adalah vaksin COVID-19.</li>
+                            <li style="font-family: panggil1, cursive; color: #FFFBE6;">Vaksin toksin:<br>Vaksin yang diproduksi oleh bakteri yang sudah dinetralkan, sehingga dapat memicu respons imun. Contohnya adalah vaksin difteri dan tetanus.</li>
+                            <li style="font-family: panggil1, cursive; color: #FFFBE6;">Vaksin Live Attenuated (Vaksin Hidup yang Dilemahkan):<br>Vaksin yang menggunakan virus atau bakteri hidup yang dilemahkan. Contoh vaksin ini adalah vaksin campak dan rubella (MMR).</li>
+                        </strong>
+                    </p>
+                </div>
+            </div>
+    </section>    
+
+    <section class="category-section bg-tertiary text-white" data-aos="fade-up" style="background-color: #FCFAEE !important;">
+            <h2 class="section-header" style="font-family: Fredoka, sans-serif; color: #B8001F;">Jadwal Imunisasi</h2>
+            <div class="row align-items-center">
+                <div class="col-md-6" data-aos="fade-right">
+                    <img src="assets/imuni.png" alt="Jadwal Imunisasi" class="category-image">
+                </div>
+                <div class="col-md-6 category-text" data-aos="fade-left">
+                    <p class="section-content" style="font-family: Fredoka; color: #B8001F;">
+                        Jadwal imunisasi yang tepat dapat membuat kita tidak rentan terinfeksi virus berbahaya. Jadwal imunisasi meliputi:<br>
+                        <li style="font-family: panggil1, cursive; color: #B8001F;">Saat lahir (vaksin hepatitis B).</li>
+                        <li style="font-family: panggil1, cursive; color: #B8001F;">Usia 1 bulan (vaksin hepatitis B ke-2).</li>
+                        <li style="font-family: panggil1, cursive; color: #B8001F;">Usia 2 bulan (vaksin DPT) difteri, pertusis dan tetanus.</li>
+                        <li style="font-family: panggil1, cursive; color: #B8001F;">Usia 4 bulan (vaksin DPT dosis kedua).</li>
+                        <li style="font-family: panggil1, cursive; color: #B8001F;">Usia 6 bulan (vaksin DPT dosis ketiga).</li>
+                        <li style="font-family: panggil1, cursive; color: #B8001F;">Usia 12-15 bulan (vaksin campak, gondongan, dan rubella).</li>
+                        <li style="font-family: panggil1, cursive; color: #B8001F;">Usia 4-6 tahun (vaksin DPT booster).</li>
+                        <li style="font-family: panggil1, cursive; color: #B8001F;">Usia 11-12 tahun (vaksin tetanus, difteri, dan pertusis).</li><br>
+                    </p>
+                </div>
+            </div>
+    </section>
+
+    <section class="category-section bg-primary text-white" data-aos="fade-up" style="background-color: #C63D2F !important;">
+            <h2 class="section-header" style="font-family: Fredoka, sans-serif; color: #FFFBE6;">Manfaat Imunisasi</h2>
+            <div class="row align-items-center">
+                <div class="col-md-6" data-aos="fade-right">
+                    <img src="assets/manfaatimunisasi.png" alt="Manfaat Imunisasi" class="category-image">
+                </div>
+                <div class="col-md-6 category-text" data-aos="fade-left">
+                    <p class="section-content" style="font-family: Fredoka; color: #FFFBE6;">Manfaat imunisasi yaitu: <br>
+                        <li style="font-family: panggil1, cursive; color: #FFFBE6;">Melindungi dari penyakit serius.</li>
+                        <li style="font-family: panggil1, cursive; color: #FFFBE6;">Membangun kekebalan tubuh.</li>
+                        <li style="font-family: panggil1, cursive; color: #FFFBE6;">Mencegah penyebaran penyakit.</li>
+                        <li style="font-family: panggil1, cursive; color: #FFFBE6;">Hemat biaya kesehatan.</li>
+                        <li style="font-family: panggil1, cursive; color: #FFFBE6;">Mencegah penyakit, meningkatkan kekebalan tubuh.</li></li>
+                        <li style="font-family: panggil1, cursive; color: #FFFBE6;">Mencegah wabah, menjaga kesehatan masyarakat.</li><br>
+                        Maka dari itu penting rasanya sebagai anak sekolah mengikuti imunisasi.
+                    </p>
+                </div>
+            </div>
+    </section>
+
+    <section class="category-section bg-secondary text-white" data-aos="fade-up" style="background-color: #FCFAEE !important;">
+            <h2 class="section-header" style="font-family: Fredoka, sans-serif; color: #B8001F;">Sumber Daya Imunisasi</h2>
+            <div class="row align-items-center">
+                <div class="col-md-6" data-aos="fade-right">
+                    <img src="assets/sumberimunisasi.png" alt="Sumber Daya Imunisasi" class="category-image">
+                </div>
+                <div class="col-md-6 category-text" data-aos="fade-left">
+                    <p class="section-content" style="font-family: Fredoka; color: #B8001F;">Sumber daya imunisasi mencakup berbagai aspek<br>
+                        yang mendukung program imunisasi, yaitu:<br><br>
+                        <li style="font-family: panggil1, cursive; color: #B8001F;">Vaksin:<br>Produk biologis yang diberikan untuk meningkatkan kekebalan individu terhadap penyakit tertentu.</li>
+                        <li style="font-family: panggil1, cursive; color: #B8001F;">Tenaga kesehatan:<br>Profesional medis yang terlatih untuk memberikan vaksin dan memberikan edukasi.</li>
+                        <li style="font-family: panggil1, cursive; color: #B8001F;">Fasilitas kesehatan:<br>Berupa rumah sakit, klinik, dan pusat kesehatan yang menyediakan layanan vaksinasi kepada Masyarakat.</li>
+                    </p>
+                </div>
+            </div>
+    </section>
+
+    <footer class="bg-success text-white py-8" style="background-color: #C63D2F !important; border-radius: 8px;" data-aos="fade-down">
+        <div class="row text-center">
+            <div class="col-md-12 mb-4">
+                <img src="assets/sekolahsehat.png" alt="Logo" class="mx-auto mb-4" style="width: 150px;">
+            </div>
+            <div class="col-md-12">
+                <p class="font-semibold text-lg md:text-xl lg:text-2xl tracking-wide mb-4" style="font-family: 'nasi', sans-serif; color: #FFFBE6;">
+                    Mewujudkan Sekolah Sehat, Aman, Dan Nyaman Bagi Anak-Anak Kita
+                </p>
+            </div>
+            <div class="col-md-12 mb-4">
+                <p class="text-sm md:text-base lg:text-lg mb-1" style="font-family: 'nasi', sans-serif; color: #FFFBE6;">
+                    📞 Telp: <span class="font-bold text-gray-100">0895-3212-05351 (Jakkob)</span>
+                </p>
+                <p class="text-sm md:text-base lg:text-lg" style="color: #FFFBE6;">
+                    📧 Email: <a href="#" class="hover:text-gray-300 font-medium">gerakansekolahsehat.com</a>
+                </p>
+            </div>
+        </div>
+        <div class="row mt-6">
+            <div class="col-md-12 text-center">
+                <p class="text-sm md:text-base lg:text-lg text-gray-200 font-medium" style="color: #FFFBE6;">
+                    &copy; 2024 Menuju Sekolah Sehat.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+<script>
+    AOS.init({
+        duration: 1000,  
+        once: false,
+        mirror: true
+    });
+</script>
+</body>
+</html>

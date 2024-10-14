@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sehat Fisik - Gerakan Sekolah Sehat</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    <link rel="icon" type="image/xicon" href="ks-removebg-preview.png">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+        @font-face {
+            font-family: 'panggil1';
+            src: url(./swansea-font/info.txt);
+        }
+
+        .category-section {
+            padding: 50px 0;
+        }
+
+        .category-image {
+            width: 100%;
+            border-radius: 10px;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .category-image:hover {
+            transform: scale(1.05);
+        }
+
+        .section-header {
+            font-size: 36px;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .section-content {
+            font-size: 18px;
+            text-align: justify;
+            margin-bottom: 20px;
+        }
+
+        .bg-primary { background-color: #34d399; }
+        .bg-secondary { background-color: #d1fae5; }
+        .bg-tertiary { background-color: #a7f3d0; }
+        
+        .category-text {
+            padding: 20px;
+        }
+
+        .intro-section {
+            background-color: #E3FDFD;
+            padding: 100px 0;
+        }
+
+        .container {
+            position: relative;
+            z-index: 2;
+            background: rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            width: 100%;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .dropdown-menu {
+            background-color: #8EACCD;
+            border: none;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            padding: 0;
+            margin: 0;
+            transition: all 0.3s ease;
+        }
+
+        .dropdown-item {
+            font-family: 'panggil1', sans-serif;
+            color: #ffffff;
+            padding: 10px 20px;
+            transition: all 0.3s ease;
+        }
+
+        .dropdown-item:hover {
+            background-color: #D2E0FB;
+            color: #ffffff;
+        }
+
+        .dropdown:hover .dropdown-menu {
+            display: block;
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .navbar {
+            transition: box-shadow 0.3s ease-in-out;
+            font-size: 18px;
+            z-index: 9999;
+            background-color: #B7E0FF!important;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar-toggler-icon {
+            background-image: url('data:image/svg+xml;charset=utf8,%3Csvg xmlns%3D%27http://www.w3.org/2000/svg%27 viewBox%3D%270 0 30 30%27%3E%3Cpath stroke%3D%27rgba%28255, 255, 255, 1%27 stroke-width%3D%272%27 stroke-linecap%3D%27round%27 stroke-miterlimit%3D%2710%27 d%3D%27M4 7h22M4 15h22M4 23h22%27/%3E%3C/svg%3E');
+        }
+
+        .navbar-nav .dropdown-menu {
+            opacity: 0;
+            visibility: hidden;
+            transition: visibility 0.3s, opacity 0.3s ease;
+        }
+
+        .navbar-nav .dropdown:hover .dropdown-menu {
+            display: block;
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(5px);
+        }
+
+        .navbar-nav .nav-link {
+            position: relative;
+            color: #ffffff;
+            padding: 10px 15px;
+            font-family: 'panggil1', sans-serif;
+            transition: all 0.3s ease;
+            overflow: hidden;
+        }
+
+        .navbar-nav .nav-link::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            width: 300%;
+            height: 300%;
+            background-color: #B7E0FF;
+            transform: translate(-50%, -50%) scale(0);
+            transition: transform 0.5s ease;
+            border-radius: 50%;
+            z-index: -1;
+        }
+
+        .navbar-nav .nav-link:hover::before {
+           transform: translate(-50%, -50%) scale(1);
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: #ffffff;
+        }
+
+        .navbar-nav .nav-link:hover {
+            background-color: #C4D7FF;
+            border-radius: 5px;
+        }
+
+        .navbar-scrolled {
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar img {
+            max-height: 60px;
+            margin-right: 15px;
+        }
+
+        img {
+            width: 180px;
+        }
+
+        .intro-section h1 {
+            font-size: 48px;
+            font-weight: bold;
+            text-align: center;
+            color: #455A64;
+            font-family: "Fredoka", sans-serif;
+        }
+
+        .intro-section p {
+            font-size: 20px;
+            text-align: center;
+            max-width: 800px;
+            margin: 20px auto;
+            color: #455A64;
+            font-weight: bold;
+            font-family: "Open Sans", sans-serif;
+        }
+
+        .part-section {
+            font-weight: bold;
+            font-size: 24px;
+            text-align: center;
+            margin-bottom: 20px;
+            color: #00796b;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg shadow-md py-0" id="mainNavbar" data-aos="fade-down">
+        <div class="container">
+            <img src="assets/sekolahsehat.png" alt="logo">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html" style="font-family: panggil1, sans-serif; color: #ffffff;">Beranda</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="5SDropdown" role="button" aria-expanded="false" style="font-family: panggil1, sans-serif; color: #ffffff;">
+                            Gerakan 5S
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="5SDropdown">
+                            <li><a class="dropdown-item" href="sehat-makanan.html" style="font-family: panggil1, sans-serif;">Sehat Makanan</a></li>
+                            <li><a class="dropdown-item" href="sehat-lingkungan1.html" style="font-family: panggil1, sans-serif;">Sehat Lingkungan</a></li>
+                            <li><a class="dropdown-item" href="sehat-mental.html" style="font-family: panggil1, sans-serif;">Sehat Mental</a></li>
+                            <li><a class="dropdown-item" href="sehat-imunisasi.html" style="font-family: panggil1, sans-serif;">Sehat Imunisasi</a></li>
+                            <li><a class="dropdown-item" href="sehat-fisik.html" style="font-family: panggil1, sans-serif;">Sehat Fisik</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="edukasi.html" style="font-family: panggil1, sans-serif; color: #ffffff;">Edukasi</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section class="intro-section" data-aos="fade-down">
+            <h1>Apa itu Sehat Fisik?</h1>
+            <p>Dalam Gerakan Sekolah Sehat, sehat fisik menjadi salah satu aspek utama yang ditekankan. Sehat fisik dalam konteks ini berfokus pada membangun kebiasaan hidup sehat di kalangan siswa agar mereka dapat mencapai kondisi tubuh yang optimal untuk belajar dan berkembang.</p>
+    </section>
+
+    <section class="category-section bg-primary text-white" data-aos="fade-up" style="background-color: #c1dfeb !important;">
+            <h2 class="section-header" style="font-family: Fredoka, sans-serif; color: #232D3F;">Pentingnya Aktivitas Fisik</h2>
+            <div class="row align-items-center">
+                <div class="col-md-6" data-aos="fade-right">
+                    <img src="assets/pentingnya.png" alt="Pentingnya Aktivitas Fisik" class="category-image">
+                </div>
+                <div class="col-md-6 category-text" data-aos="fade-left">
+                    <p class="section-content" style="font-family: Fredoka; color: #232D3F;">Aktivitas fisik secara teratur membantu tubuh kita meningkatkan kesehatan jantung dan kekuatan otot. berikut alasan mengapa aktivitas fisik itu penting:
+                            <ul>
+                                <li style="font-family: panggil1, cursive; color: #232D3F;">Menjaga berat badan:<br>Olahraga dapat membantu membakar kalori jahat. Dengan rutin olahraga anda dapat mengegola berat badan anda.</li>
+                                <li style="font-family: panggil1, cursive; color: #232D3F;">Meningkatkan energi:<br>Berolahraga dengan teratur dapat meningkatkan stamina dan energi</li>
+                                <li style="font-family: panggil1, cursive; color: #232D3F;">Menjaga kesehatan tulang dan sendi:<br>Dengan ada kegiatan aktivitas fisik, mampu memperkuat sandi dan menjaga kepadatan tulang.</li>
+                                <li style="font-family: panggil1, cursive; color: #232D3F;">Meningkatkan kesehatan mental:<br>Aktivitas fisik dapat membantu anda mengurangi stres dan depresi.</li>
+                            </ul>
+                    </p>
+                </div>
+            </div>
+    </section>
+
+    <section class="category-section bg-secondary text-white" data-aos="fade-up" style="background-color: #E3FDFD !important;"> 
+        <h2 class="section-header" style="font-family: Fredoka, sans-serif; color: #455A64;">Jenis-Jenis Olahraga</h2>
+        <div class="row align-items-center">
+            <div class="col-md-6 order-md-2" data-aos="fade-left">
+                <img src="Desain tanpa judul (8).png" alt="Jenis-Jenis Olahraga" class="category-image">
+            </div>
+            <div class="col-md-6 order-md-1 category-text" data-aos="fade-right">
+                <p class="section-content" style="font-family: Fredoka; color: #455A64;">Berbagai macam jenis olahraga untuk menyehatkan fisik kita seperti:<br><br>
+                    <div class="list-container">
+                        <li style="font-family: panggil1, cursive; color: #455A64;">Lari Maraton</li>
+                        <li style="font-family: panggil1, cursive; color: #455A64;">Bulutangkis</li>
+                        <li style="font-family: panggil1, cursive; color: #455A64;">Sepak bola</li>
+                        <li style="font-family: panggil1, cursive; color: #455A64;">Basket</li>
+                        <li style="font-family: panggil1, cursive; color: #455A64;">Voli</li>
+                        <li style="font-family: panggil1, cursive; color: #455A64;">Tenis</li>
+                        <li style="font-family: panggil1, cursive; color: #455A64;">Panjat tembing</li>
+                        <li style="font-family: panggil1, cursive; color: #455A64;">Lompat jauh</li>
+                    </div>
+                </p>
+            </div>
+        </div>
+    </section>
+    
+
+    <section class="category-section bg-tertiary text-white" data-aos="fade-up" style="background-color: #CBF1F5">
+        <div class="container">
+            <h2 class="section-header" style="font-family: Poppins, sans-serif; color: #1f1f1f;">Kebiasaan Sehat</h2>
+            <div class="row align-items-center">
+                <div class="col-md-6" data-aos="fade-right">
+                    <img src="Desain tanpa judul (9).png" alt="Kebiasaan Sehat" class="category-image">
+                </div>
+                <div class="col-md-6 category-text" data-aos="fade-left">
+                    <p class="section-content" style="font-family: Poppins,sans-serif; font-weight: bold; color: rgba(45, 45, 45, 0.68);">Kebiasaan hidup sehat seperti tidur yang cukup, makan makanan yang bergizi, dan menjaga hidrasi tubuh merupakan bagian penting dari gaya hidup sehat. Mengintegrasikan kebiasaan ini dalam rutinitas sehari-hari dapat membantu menjaga kesehatan fisik secara keseluruhan.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="category-section bg-secondary text-white" data-aos="fade-up" style="background-color: #71C9CE !important;">
+        <div class="container">
+            <h2 class="section-header" style="font-family: Poppins, sans-serif; color: #1f1f1f;">Tips Kesehatan Fisik</h2>
+            <div class="row align-items-center">
+                <div class="col-md-6 order-md-2" data-aos="fade-left">
+                    <img src="Desain tanpa judul (11).png" alt="Tips Kesehatan Fisik" class="category-image">
+                </div>
+                <div class="col-md-6 order-md-1 category-text" data-aos="fade-right">
+                    <p class="section-content" style="font-family: Poppins,sans-serif; font-weight: bold; color: rgba(45, 45, 45, 0.68);">Beberapa tips untuk menjaga kesehatan fisik seperti: <br><br>
+                        <strong>1. Olahraga Secara Rutin:<br> Lakukan aktivitas fisik minimal 30 menit sehari, Seperti berjalan kaki, jogging, atau bersepeda. hal itu Akan menjaga stamina, memperkuat otot, dan Meningkatkan kesehatan jantung kalian.</strong><br><br>
+                        <strong>2. Istirahat yang cukup: <br>Tidur 7-9 jam setiap malam penting untuk Memulihkan energi dan memperbaiki fungsi tubuh.</strong><br><br>
+                        <strong>3. Hindari kebiasaan buruk:<br>Jangan merokok, batasi konsumsi alkohol, dan Hindari penggunaan obat-obatan terlarang.</strong><br>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-success py-5 text-white text-center" style="font-family: Poppins, sans-serif; background-color: #2f7779 !important;">
+        <div class="container">
+            <h4 class="mb-3">Gerakan Sekolah Sehat</h4>
+            <p class="mb-4">Mewujudkan Sekolah Sehat, Aman, Dan Nyaman Bagi Anak-Anak Kita.</p>
+            <p class="small">&copy; 2024 Menuju Sekolah Sehat.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+</body>
+</html>
